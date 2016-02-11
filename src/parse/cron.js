@@ -41,13 +41,14 @@ later.parse.cron = function (expr, hasSeconds) {
 
   // Contains the index, min, and max for each of the constraints
   var FIELDS = {
-    s: [0, 0, 59],      // seconds
-    m: [1, 0, 59],      // minutes
-    h: [2, 0, 23],      // hours
-    D: [3, 1, 31],      // day of month
-    M: [4, 1, 12],      // month
-    Y: [6, 1970, 2099], // year
-    d: [5, 1, 7, 1]     // day of week
+    s:  [0, 0, 59],      // seconds
+    m:  [1, 0, 59],      // minutes
+    h:  [2, 0, 23],      // hours
+    D:  [3, 1, 31],      // day of month
+    M:  [4, 1, 12],      // month
+    d:  [5, 1, 7, 1],    // day of week
+    wy: [6, 1, 53],      // week of year
+    Y:  [7, 1970, 2099]  // year
   };
 
   /**

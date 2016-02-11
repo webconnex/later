@@ -416,32 +416,32 @@ describe('Parse Cron', function() {
 	describe('years', function() {
 
 		it('should parse asterisk to mean any value', function() {
-			var p = parse('0 0 0 0 0 0 *', true);
+			var p = parse('0 0 0 0 0 0 0 *', true);
 			p.schedules[0].should.not.have.ownProperty('Y');
 		});
 
 		it('should parse a single value', function() {
-			var p = parse('* * * * * * 2012', true);
+			var p = parse('* * * * * * * 2012', true);
 			p.schedules[0].should.eql({Y: [2012]});
 		});
 
 		it('should parse multiple values', function() {
-			var p = parse('* * * * * * 2012,2014,2020', true);
+			var p = parse('* * * * * * * 2012,2014,2020', true);
 			p.schedules[0].should.eql({Y: [2012,2014,2020]});
 		});
 
 		it('should parse a range value', function() {
-			var p = parse('* * * * * * 2012-2014', true);
+			var p = parse('* * * * * * * 2012-2014', true);
 			p.schedules[0].should.eql({Y: [2012,2013,2014]});
 		});
 
 		it('should parse a range with increment value', function() {
-			var p = parse('* * * * * * 2012-2016/2', true);
+			var p = parse('* * * * * * * 2012-2016/2', true);
 			p.schedules[0].should.eql({Y: [2012,2014,2016]});
 		});
 
 		it('should parse an asterisk with increment value', function() {
-			var p = parse('* * * * * * */100', true);
+			var p = parse('* * * * * * * */100', true);
 			p.schedules[0].should.eql({Y: [1970,2070]});
 		});
 

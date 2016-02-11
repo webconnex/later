@@ -110,7 +110,7 @@ describe('Cron Examples', function() {
   it('Fire at 10:15am every day during 2013', function() {
     later.date.UTC();
 
-    var sched = later.parse.cron('0 15 10 * * ? 2013', true);
+    var sched = later.parse.cron('0 15 10 * * ? * 2013', true);
 
     var start = new Date('2012-03-21T03:05:23Z'),
         end = new Date('2013-01-05T23:40:10Z'),
